@@ -14,10 +14,13 @@ A web-based application built with Flask that allows users to generate various t
 
 Here are some screenshots of the app:
 
-![QR Code Generator](./screenshots/generator.png)
+![QR Code Generator](static/images/image1.png)
+*QR Code Generator and Scanner Interface*
+
+![QR Code Scanner](static/images/image2.png)
 *QR Code Generator Interface*
 
-![QR Code Scanner](./screenshots/scanner.png)
+![QR Code Scanner](static/images/image3.png)
 *QR Code Scanner Interface*
 
 ## Technologies Used
