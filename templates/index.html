@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code Generator & Scanner</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container py-5">
+    <h1 class="text-center mb-5 animate__animated animate__fadeInDown">🔳 QR Code Generator & Scanner</h1>
+
+    <div class="row g-5">
+      <!-- QR Code Generator -->
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="glass-card animate__animated animate__fadeInLeft">
+          <h4 class="mb-4">🔐 Generate QR Code</h4>
+          <form method="POST">
+            <div class="mb-3">
+              <label class="form-label">Data</label>
+              <input type="text" name="data" class="form-control" placeholder="Enter text, URL, email, phone..." required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Type</label>
+              <select name="type" class="form-select">
+                <option value="text">Plain Text</option>
+                <option value="url">URL</option>
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+                <option value="wifi">Wi-Fi (SSID,PASSWORD)</option>
+              </select>
+            </div>
+            <button type="submit" name="generate" class="btn btn-gradient w-100">Generate QR</button>
+          </form>
+
+          {% if qr_path %}
+          <div class="mt-4 text-center animate__animated animate__fadeInUp">
+            <img src="{{ qr_path }}" alt="QR Code" class="img-preview mb-3">
+            <p class="text-success fw-bold">✅ QR Code Generated!</p>
+            <a href="{{ url_for('download_qr') }}" class="btn btn-outline-dark me-2">⬇ Download QR Code</a>
+
+            {% if qr_generated %}
+            <form method="POST" class="d-inline">
+              <button type="submit" name="scan_generated" class="btn btn-outline-primary">🔍 Scan This QR</button>
+            </form>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- QR Code Scanner -->
+      <div class="col-lg-6">
+        <div class="glass-card animate__animated animate__fadeInRight">
+          <h4 class="mb-4">📷 Scan QR Code</h4>
+          <form method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label class="form-label">Upload QR Image</label>
+              <input type="file" name="qr_image" class="form-control" required>
+            </div>
+            <button type="submit" name="scan" class="btn btn-gradient w-100">Scan QR</button>
+          </form>
+
+          {% if scanned_data %}
+          <div class="mt-4 animate__animated animate__fadeInUp">
+            <h6>Scanned Data:</h6>
+            <div class="alert alert-info">{{ scanned_data }}</div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

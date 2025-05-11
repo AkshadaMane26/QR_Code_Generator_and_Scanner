@@ -1,0 +1,146 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #e0eafc 0%, #ffffff 100%);
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #2b2b2b;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+}
+
+.glass-card h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2b2b2b;
+}
+
+.glass-card form {
+  margin-top: 20px;
+}
+
+/* Buttons */
+.btn-gradient {
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+  border-radius: 25px;
+  padding: 12px 20px;
+  width: 100%;
+  font-size: 1.1rem;
+  transition: background 0.3s ease-in-out;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(to right, #764ba2, #667eea);
+}
+
+.btn-outline-dark {
+  color: #2b2b2b;
+  border-color: #2b2b2b;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+
+.btn-outline-dark:hover {
+  background-color: #2b2b2b;
+  color: white;
+}
+
+.btn-outline-primary {
+  color: #5cb85c;
+  border-color: #5cb85c;
+  border-radius: 25px;
+  padding: 10px 20px;
+}
+
+.btn-outline-primary:hover {
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Input fields */
+.form-control,
+.form-select {
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 1rem;
+  border: 1px solid #e0eafc;
+  margin-bottom: 20px;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 5px rgba(102, 126, 234, 0.7);
+}
+
+/* Image preview */
+.img-preview {
+  max-width: 200px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Alerts */
+.alert-info {
+  background-color: #d9f7fd;
+  color: #006064;
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .glass-card {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .glass-card {
+    padding: 15px;
+  }
+
+  .btn-gradient, .btn-outline-dark, .btn-outline-primary {
+    font-size: 1rem;
+  }
+
+  .img-preview {
+    max-width: 100%;
+  }
+}
